@@ -1,0 +1,24 @@
+{
+  "hero_ligne1": "Le Sénégal",
+  "hero_ligne2": "se boit",
+  "hero_ligne3": "frais.",
+  "hero_texte": "Bissap, bouye, ditakh, madd, crèmes glacées, desserts et box salées, préparés à la main aux Parcelles Assainies. Livraison disponible à Dakar.",
+  "maison_titre": "Des gorgées de *bonheur*, faites à la main.",
+  "maison_texte1": "Tout part d'une cuisine de l'Unité 26, aux Parcelles Assainies. Fleurs d'hibiscus, pain de singe, madd, ditakh et gingembre deviennent des jus et des crèmes glacées.",
+  "maison_texte2": "Chaque bouteille et chaque crème est préparée à la main, puis livrée chez vous.",
+  "maison_photo": "images/produits/creme-caramel.webp",
+  "maison_legende": "Crèmes caramel, 500 F",
+  "carte_intro": "Composez votre commande ici : le message WhatsApp se prépare tout seul, vous n'avez plus qu'à l'envoyer.",
+  "evenements_titre": "Vos fêtes méritent mieux qu'un jus en poudre.",
+  "evenements_texte": "Baptême, mariage, anniversaire, réunion de famille ou d'entreprise : indiquez-nous la date et le nombre d'invités, nous vous proposons les quantités et les saveurs.",
+  "occasions": [
+    "Baptême",
+    "Mariage",
+    "Anniversaire",
+    "Tabaski",
+    "Korité",
+    "Entreprise",
+    "Autre"
+  ],
+  "annonce": ""
+}

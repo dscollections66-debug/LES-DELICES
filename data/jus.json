@@ -1,0 +1,59 @@
+{
+  "chapitres": [
+    {
+      "produit": "Bissap Rouge",
+      "accroche": "L'incontournable",
+      "titre": "Bissap",
+      "texte": "La fleur d'hibiscus infusée, rouge profond ou blanche et douce. Le goût de toutes les fêtes sénégalaises.",
+      "unite": "le litre",
+      "bouteille": "bissap",
+      "fond": "#5c0b24",
+      "encre": "#f6eedd",
+      "halo": "#c4214f"
+    },
+    {
+      "produit": "Bouye Lait",
+      "accroche": "Le fruit du baobab",
+      "titre": "Bouye *lait*",
+      "texte": "Le pain de singe mixé avec du lait, onctueux et légèrement acidulé. Aussi en fraise, corossol, kaki et ananas.",
+      "unite": "le litre",
+      "bouteille": "bouye",
+      "fond": "#efe4cb",
+      "encre": "#2a1d12",
+      "halo": "#fff6dc"
+    },
+    {
+      "produit": "Madd Passion",
+      "accroche": "Acidulé, sucré",
+      "titre": "Madd *passion*",
+      "texte": "Le madd de Casamance marié au fruit de la passion. Une pulpe dorée, pleine de grains, qui réveille.",
+      "unite": "le litre",
+      "bouteille": "madd",
+      "fond": "#e8891c",
+      "encre": "#2a1405",
+      "halo": "#ffd27a"
+    },
+    {
+      "produit": "Ditakh",
+      "accroche": "Le trésor vert",
+      "titre": "Ditakh",
+      "texte": "Le fruit vert du ditakh, riche et parfumé, qu'on attend chaque saison.",
+      "unite": "le litre",
+      "bouteille": "ditakh",
+      "fond": "#25472b",
+      "encre": "#f1ead8",
+      "halo": "#8fbf5a"
+    },
+    {
+      "produit": "Gingembre",
+      "accroche": "Ça pique un peu",
+      "titre": "Gingem*bre*",
+      "texte": "Le gingembre frais râpé et pressé, avec ce qu'il faut de piquant. À boire très frais.",
+      "unite": "le litre",
+      "bouteille": "gingembre",
+      "fond": "#d8b24a",
+      "encre": "#2a2008",
+      "halo": "#fff0b0"
+    }
+  ]
+}

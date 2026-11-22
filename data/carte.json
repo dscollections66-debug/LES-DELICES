@@ -1,0 +1,682 @@
+{
+  "produits": [
+    {
+      "nom": "Bissap Blanc",
+      "categorie": "Boissons traditionnelles",
+      "formats": [
+        {
+          "nom": "1 L",
+          "prix": 2000
+        },
+        {
+          "nom": "250 mL",
+          "prix": 600
+        }
+      ],
+      "disponible": true,
+      "quantite": null,
+      "incontournable": false,
+      "ingredients": "Eau, Bissap blanc, Sucre",
+      "bouteille": "bissap-blanc",
+      "photo": "",
+      "description": ""
+    },
+    {
+      "nom": "Bissap Rouge",
+      "categorie": "Boissons traditionnelles",
+      "formats": [
+        {
+          "nom": "1 L",
+          "prix": 2000
+        },
+        {
+          "nom": "250 mL",
+          "prix": 600
+        }
+      ],
+      "disponible": true,
+      "quantite": null,
+      "incontournable": true,
+      "ingredients": "Eau, Bissap, Sucre",
+      "bouteille": "bissap",
+      "photo": "",
+      "description": ""
+    },
+    {
+      "nom": "Gingembre",
+      "categorie": "Boissons traditionnelles",
+      "formats": [
+        {
+          "nom": "1 L",
+          "prix": 2500
+        },
+        {
+          "nom": "250 mL",
+          "prix": 600
+        }
+      ],
+      "disponible": true,
+      "quantite": null,
+      "incontournable": false,
+      "ingredients": "Eau, Gingembre, Sucre",
+      "bouteille": "gingembre",
+      "photo": "",
+      "description": ""
+    },
+    {
+      "nom": "Ditakh",
+      "categorie": "Boissons traditionnelles",
+      "formats": [
+        {
+          "nom": "1 L",
+          "prix": 3000
+        },
+        {
+          "nom": "250 mL",
+          "prix": 600
+        }
+      ],
+      "disponible": true,
+      "quantite": null,
+      "incontournable": false,
+      "ingredients": "Eau, Ditakh, Sucre",
+      "bouteille": "ditakh",
+      "photo": "",
+      "description": ""
+    },
+    {
+      "nom": "Bouye Lait",
+      "categorie": "Boissons traditionnelles",
+      "formats": [
+        {
+          "nom": "1 L",
+          "prix": 2500
+        },
+        {
+          "nom": "250 mL",
+          "prix": 600
+        }
+      ],
+      "disponible": true,
+      "quantite": null,
+      "incontournable": true,
+      "ingredients": "Eau, Bouye, Lait, Sucre",
+      "bouteille": "bouye",
+      "photo": "",
+      "description": ""
+    },
+    {
+      "nom": "Bouye Fraise",
+      "categorie": "Boissons traditionnelles",
+      "formats": [
+        {
+          "nom": "1 L",
+          "prix": 2500
+        },
+        {
+          "nom": "250 mL",
+          "prix": 600
+        }
+      ],
+      "disponible": true,
+      "quantite": null,
+      "incontournable": false,
+      "ingredients": "Eau, Bouye, Fraise, Sucre",
+      "bouteille": "fraise",
+      "photo": "",
+      "description": ""
+    },
+    {
+      "nom": "Bouye Corossol",
+      "categorie": "Boissons traditionnelles",
+      "formats": [
+        {
+          "nom": "1 L",
+          "prix": 2500
+        },
+        {
+          "nom": "250 mL",
+          "prix": 600
+        }
+      ],
+      "disponible": true,
+      "quantite": null,
+      "incontournable": false,
+      "ingredients": "Eau, Bouye, Corossol, Sucre",
+      "bouteille": "corossol",
+      "photo": "",
+      "description": ""
+    },
+    {
+      "nom": "Mangue Passion",
+      "categorie": "Boissons traditionnelles",
+      "formats": [
+        {
+          "nom": "1 L",
+          "prix": 3000
+        },
+        {
+          "nom": "250 mL",
+          "prix": 600
+        }
+      ],
+      "disponible": true,
+      "quantite": null,
+      "incontournable": false,
+      "ingredients": "Eau, Mangue, Passion, Sucre",
+      "bouteille": "mangue",
+      "photo": "",
+      "description": ""
+    },
+    {
+      "nom": "Bouye Kaki",
+      "categorie": "Boissons traditionnelles",
+      "formats": [
+        {
+          "nom": "1 L",
+          "prix": 3000
+        },
+        {
+          "nom": "250 mL",
+          "prix": 600
+        }
+      ],
+      "disponible": true,
+      "quantite": null,
+      "incontournable": false,
+      "ingredients": "Eau, Bouye, Kaki, Sucre",
+      "bouteille": "kaki",
+      "photo": "",
+      "description": ""
+    },
+    {
+      "nom": "Bouye Ananas",
+      "categorie": "Boissons traditionnelles",
+      "formats": [
+        {
+          "nom": "1 L",
+          "prix": 3000
+        },
+        {
+          "nom": "250 mL",
+          "prix": 600
+        }
+      ],
+      "disponible": true,
+      "quantite": null,
+      "incontournable": false,
+      "ingredients": "Eau, Bouye, Ananas, Sucre",
+      "bouteille": "ananas",
+      "photo": "",
+      "description": ""
+    },
+    {
+      "nom": "Orange Melon Ananas",
+      "categorie": "Jus cocktails",
+      "formats": [
+        {
+          "nom": "1 L",
+          "prix": 3000
+        },
+        {
+          "nom": "250 mL",
+          "prix": 600
+        }
+      ],
+      "disponible": true,
+      "quantite": null,
+      "incontournable": false,
+      "ingredients": "Eau, Orange, Melon, Ananas, Sucre",
+      "bouteille": "orange",
+      "photo": "",
+      "description": ""
+    },
+    {
+      "nom": "Madd Passion",
+      "categorie": "Jus cocktails",
+      "formats": [
+        {
+          "nom": "1 L",
+          "prix": 3000
+        },
+        {
+          "nom": "250 mL",
+          "prix": 600
+        }
+      ],
+      "disponible": true,
+      "quantite": null,
+      "incontournable": false,
+      "ingredients": "Eau, Madd, Passion, Sucre",
+      "bouteille": "madd",
+      "photo": "",
+      "description": ""
+    },
+    {
+      "nom": "Cocktail Fruité",
+      "categorie": "Jus cocktails",
+      "formats": [
+        {
+          "nom": "1 L",
+          "prix": 3000
+        },
+        {
+          "nom": "250 mL",
+          "prix": 600
+        }
+      ],
+      "disponible": true,
+      "quantite": null,
+      "incontournable": true,
+      "ingredients": "Eau, Fruits de saison, Sucre",
+      "bouteille": "cocktail",
+      "photo": "",
+      "description": ""
+    },
+    {
+      "nom": "Grenade Passion",
+      "categorie": "Jus cocktails",
+      "formats": [
+        {
+          "nom": "1 L",
+          "prix": 3000
+        },
+        {
+          "nom": "250 mL",
+          "prix": 600
+        }
+      ],
+      "disponible": true,
+      "quantite": null,
+      "incontournable": true,
+      "ingredients": "Eau, Grenade, Passion, Sucre",
+      "bouteille": "grenade",
+      "photo": "",
+      "description": ""
+    },
+    {
+      "nom": "Ananas Passion",
+      "categorie": "Jus cocktails",
+      "formats": [
+        {
+          "nom": "1 L",
+          "prix": 3000
+        },
+        {
+          "nom": "250 mL",
+          "prix": 600
+        }
+      ],
+      "disponible": true,
+      "quantite": null,
+      "incontournable": false,
+      "ingredients": "Eau, Ananas, Passion, Sucre",
+      "bouteille": "ananas-passion",
+      "photo": "",
+      "description": ""
+    },
+    {
+      "nom": "Orange Pomme",
+      "categorie": "Jus cocktails",
+      "formats": [
+        {
+          "nom": "1 L",
+          "prix": 3000
+        },
+        {
+          "nom": "250 mL",
+          "prix": 600
+        }
+      ],
+      "disponible": true,
+      "quantite": null,
+      "incontournable": false,
+      "ingredients": "Eau, Orange, Pomme, Sucre",
+      "bouteille": "orange-pomme",
+      "photo": "",
+      "description": ""
+    },
+    {
+      "nom": "Bouye Passion",
+      "categorie": "Jus cocktails",
+      "formats": [
+        {
+          "nom": "1 L",
+          "prix": 3000
+        },
+        {
+          "nom": "250 mL",
+          "prix": 600
+        }
+      ],
+      "disponible": true,
+      "quantite": null,
+      "incontournable": false,
+      "ingredients": "Eau, Bouye, Passion, Sucre",
+      "bouteille": "passion",
+      "photo": "",
+      "description": ""
+    },
+    {
+      "nom": "Pistache",
+      "categorie": "Spéciaux",
+      "formats": [
+        {
+          "nom": "1 L",
+          "prix": 3000
+        },
+        {
+          "nom": "250 mL",
+          "prix": 600
+        }
+      ],
+      "disponible": true,
+      "quantite": null,
+      "incontournable": false,
+      "ingredients": "Lait, Pistache, Sucre",
+      "bouteille": "pistache",
+      "photo": "",
+      "description": ""
+    },
+    {
+      "nom": "Piña Colada",
+      "categorie": "Spéciaux",
+      "formats": [
+        {
+          "nom": "1 L",
+          "prix": 3000
+        },
+        {
+          "nom": "250 mL",
+          "prix": 600
+        }
+      ],
+      "disponible": true,
+      "quantite": null,
+      "incontournable": false,
+      "ingredients": "Eau, Ananas, Lait de Coco, Sucre",
+      "bouteille": "pina",
+      "photo": "",
+      "description": ""
+    },
+    {
+      "nom": "Tiramisu",
+      "categorie": "Desserts",
+      "formats": [
+        {
+          "nom": "le pot",
+          "prix": 2000
+        }
+      ],
+      "disponible": true,
+      "quantite": null,
+      "incontournable": false,
+      "ingredients": "",
+      "bouteille": "",
+      "photo": "images/produits/tiramisu.webp",
+      "description": "Crème onctueuse, filets de caramel et miettes de spéculoos."
+    },
+    {
+      "nom": "Thiakry",
+      "categorie": "Desserts",
+      "formats": [
+        {
+          "nom": "le pot",
+          "prix": 500
+        }
+      ],
+      "disponible": true,
+      "quantite": null,
+      "incontournable": false,
+      "ingredients": "",
+      "bouteille": "",
+      "photo": "images/produits/thiakry.webp",
+      "description": "Le dessert sénégalais au mil et au lait caillé."
+    },
+    {
+      "nom": "Ngalakh",
+      "categorie": "Desserts",
+      "formats": [
+        {
+          "nom": "le pot",
+          "prix": 500
+        }
+      ],
+      "disponible": true,
+      "quantite": null,
+      "incontournable": false,
+      "ingredients": "",
+      "bouteille": "",
+      "photo": "images/produits/ngalakh.webp",
+      "description": "Mil, pâte d'arachide et pain de singe."
+    },
+    {
+      "nom": "Crêpes Nutella",
+      "categorie": "Desserts",
+      "formats": [
+        {
+          "nom": "les 3",
+          "prix": 1500
+        }
+      ],
+      "disponible": true,
+      "quantite": null,
+      "incontournable": false,
+      "ingredients": "",
+      "bouteille": "",
+      "photo": "images/produits/crepes-nutella.webp",
+      "description": "Crêpes pliées, nappées de Nutella."
+    },
+    {
+      "nom": "Beignets nature",
+      "categorie": "Desserts",
+      "formats": [
+        {
+          "nom": "les 10",
+          "prix": 1000
+        }
+      ],
+      "disponible": true,
+      "quantite": null,
+      "incontournable": false,
+      "ingredients": "",
+      "bouteille": "",
+      "photo": "images/produits/beignets-nature.webp",
+      "description": "Petits beignets dorés, moelleux."
+    },
+    {
+      "nom": "Beignets coco",
+      "categorie": "Desserts",
+      "formats": [
+        {
+          "nom": "les 10",
+          "prix": 1500
+        }
+      ],
+      "disponible": true,
+      "quantite": null,
+      "incontournable": false,
+      "ingredients": "",
+      "bouteille": "",
+      "photo": "images/produits/beignets-coco.webp",
+      "description": "Les mêmes beignets, au coco râpé."
+    },
+    {
+      "nom": "Madd",
+      "categorie": "Desserts",
+      "formats": [
+        {
+          "nom": "petit pot",
+          "prix": 1000
+        },
+        {
+          "nom": "1 L",
+          "prix": 10000
+        }
+      ],
+      "disponible": true,
+      "quantite": null,
+      "incontournable": false,
+      "ingredients": "",
+      "bouteille": "",
+      "photo": "images/produits/madd-pot.webp",
+      "description": "Le madd préparé, en morceaux, sucré-acidulé."
+    },
+    {
+      "nom": "Mangonada",
+      "categorie": "Desserts",
+      "formats": [
+        {
+          "nom": "petit",
+          "prix": 2000
+        },
+        {
+          "nom": "grand",
+          "prix": 2500
+        }
+      ],
+      "disponible": true,
+      "quantite": null,
+      "incontournable": false,
+      "ingredients": "",
+      "bouteille": "",
+      "photo": "images/produits/mangonada.webp",
+      "description": "Mangue fraîche et sauce pimentée sucrée."
+    },
+    {
+      "nom": "Tacos viande",
+      "categorie": "Salé",
+      "formats": [
+        {
+          "nom": "l'unité",
+          "prix": 2500
+        }
+      ],
+      "disponible": true,
+      "quantite": null,
+      "incontournable": false,
+      "ingredients": "",
+      "bouteille": "",
+      "photo": "images/produits/tacos.webp",
+      "description": "Galette grillée, viande et frites."
+    },
+    {
+      "nom": "Tacos poulet",
+      "categorie": "Salé",
+      "formats": [
+        {
+          "nom": "l'unité",
+          "prix": 2500
+        }
+      ],
+      "disponible": true,
+      "quantite": null,
+      "incontournable": false,
+      "ingredients": "",
+      "bouteille": "",
+      "photo": "images/produits/tacos.webp",
+      "description": "Galette grillée, poulet et frites."
+    },
+    {
+      "nom": "Tacos mixte",
+      "categorie": "Salé",
+      "formats": [
+        {
+          "nom": "l'unité",
+          "prix": 3000
+        }
+      ],
+      "disponible": true,
+      "quantite": null,
+      "incontournable": false,
+      "ingredients": "",
+      "bouteille": "",
+      "photo": "images/produits/tacos.webp",
+      "description": "Galette grillée, viande, poulet et frites."
+    },
+    {
+      "nom": "Crêpes salées",
+      "categorie": "Salé",
+      "formats": [
+        {
+          "nom": "les 3",
+          "prix": 2500
+        }
+      ],
+      "disponible": true,
+      "quantite": null,
+      "incontournable": false,
+      "ingredients": "",
+      "bouteille": "",
+      "photo": "images/produits/crepes-salees.webp",
+      "description": "Crêpes garnies et dorées à la poêle."
+    },
+    {
+      "nom": "Crêpes poulet",
+      "categorie": "Salé",
+      "formats": [
+        {
+          "nom": "les 3",
+          "prix": 3000
+        }
+      ],
+      "disponible": true,
+      "quantite": null,
+      "incontournable": false,
+      "ingredients": "",
+      "bouteille": "",
+      "photo": "images/produits/crepes-salees.webp",
+      "description": "Crêpes garnies au poulet."
+    },
+    {
+      "nom": "Crêpes viande",
+      "categorie": "Salé",
+      "formats": [
+        {
+          "nom": "les 3",
+          "prix": 3000
+        }
+      ],
+      "disponible": true,
+      "quantite": null,
+      "incontournable": false,
+      "ingredients": "",
+      "bouteille": "",
+      "photo": "images/produits/crepes-salees.webp",
+      "description": "Crêpes garnies à la viande."
+    },
+    {
+      "nom": "Box salée",
+      "categorie": "Box salées",
+      "formats": [
+        {
+          "nom": "8 pièces",
+          "prix": 3000
+        },
+        {
+          "nom": "15 pièces",
+          "prix": 6000
+        },
+        {
+          "nom": "25 pièces",
+          "prix": 10000
+        },
+        {
+          "nom": "35 pièces",
+          "prix": 15000
+        },
+        {
+          "nom": "50 pièces",
+          "prix": 20000
+        }
+      ],
+      "disponible": true,
+      "quantite": null,
+      "incontournable": false,
+      "ingredients": "",
+      "bouteille": "",
+      "photo": "images/produits/box-salee.webp",
+      "description": "Un assortiment de mignardises salées, composé par Fa : rissoles, fatayas, pains chinois, bricks, nems, brochettes, mini-pizzas, beignets de crevettes, mini-crêpes salées, tortillas et tortillas panées."
+    }
+  ]
+}

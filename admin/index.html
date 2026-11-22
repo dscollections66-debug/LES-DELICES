@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#3e0818">
+<title>Espace Fa — Les Délices de FA</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%235c0b24'/%3E%3Ctext x='32' y='42' font-family='Georgia' font-style='italic' font-size='30' fill='%23f6eedd' text-anchor='middle'%3EFa%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--b:#5c0b24;--bd:#3e0818;--c:#f6eedd;--c2:#fffaf1;--i:#1d140e;--s:#6b5a4c;--o:#e8891c;--g:#1f8a4c;--r:#c4303b;--line:rgba(29,20,14,.12)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:Manrope,system-ui,sans-serif;background:var(--c);color:var(--i);font-size:16px;line-height:1.45;min-height:100svh}
+button,input,select,textarea{font:inherit;color:inherit}
+button{background:none;border:0;cursor:pointer}
+input,select,textarea{font-size:16px;width:100%;background:#fff;border:1px solid rgba(29,20,14,.22);border-radius:12px;padding:.75rem .9rem;min-height:50px}
+textarea{min-height:96px;resize:vertical}
+label{display:grid;gap:.35rem;font-weight:700;font-size:.92rem}
+label small{font-weight:500;color:var(--s)}
+.serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400}
+[hidden]{display:none!important}
+/* connexion */
+.login{min-height:100svh;display:grid;place-items:center;padding:1.5rem;background:radial-gradient(90% 60% at 50% 20%,#7a1632,#3e0818 60%,#22030b)}
+.login form{width:min(100%,380px);background:var(--c);border-radius:22px;padding:1.8rem 1.4rem;display:grid;gap:1rem;box-shadow:0 30px 80px -30px rgba(0,0,0,.6)}
+.login h1{font-size:2.4rem;line-height:1}
+.login p{color:var(--s);font-size:.95rem}
+.pw{position:relative}.pw button{position:absolute;right:.4rem;bottom:.35rem;height:42px;padding:0 .7rem;font-size:.85rem;font-weight:700;color:var(--b)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:52px;padding:0 1.3rem;border-radius:99px;font-weight:800;background:var(--b);color:var(--c);text-decoration:none}
+.btn.alt{background:transparent;color:var(--i);border:1px solid rgba(29,20,14,.3)}
+.btn.ok{background:var(--g);color:#fff}
+.err{color:var(--r);font-weight:700;font-size:.92rem;min-height:1.3em}
+/* application */
+header.top{position:sticky;top:0;z-index:20;background:var(--bd);color:var(--c);padding:calc(.7rem + env(safe-area-inset-top)) 1rem .7rem;display:flex;align-items:center;justify-content:space-between;gap:.6rem}
+header.top h1{font-size:1.6rem;line-height:1}
+header.top a,header.top button{color:var(--c);font-size:.85rem;font-weight:700;border:1px solid rgba(246,238,221,.4);border-radius:99px;padding:.45rem .8rem;min-height:40px;display:inline-flex;align-items:center;text-decoration:none}
+.state{position:sticky;top:calc(58px + env(safe-area-inset-top));z-index:19;text-align:center;font-size:.85rem;font-weight:700;padding:.4rem;background:#e7f4ea;color:#14572f;transition:background .3s}
+.state.busy{background:#fff2d6;color:#7a4a00}.state.bad{background:#fde3e3;color:#8a1020}
+main{padding:1rem 1rem calc(96px + env(safe-area-inset-bottom));max-width:720px;margin:0 auto}
+.intro{margin:.4rem 0 1rem;color:var(--s);font-size:.95rem}
+h2{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:2.1rem;line-height:1}
+nav.tabs{position:fixed;left:0;right:0;bottom:0;z-index:20;background:#fff;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(5,1fr);padding-bottom:env(safe-area-inset-bottom)}
+nav.tabs button{display:grid;justify-items:center;gap:.15rem;padding:.55rem .2rem .6rem;font-size:.72rem;font-weight:700;color:var(--s);min-height:62px}
+nav.tabs button svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+nav.tabs button[aria-current="true"]{color:var(--b)}
+.chips{display:flex;gap:.4rem;overflow-x:auto;padding:.2rem 0 .8rem;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chips button{flex:none;border:1px solid rgba(29,20,14,.25);border-radius:99px;padding:.45rem .9rem;min-height:42px;font-weight:700;font-size:.88rem;background:#fff}
+.chips button[aria-pressed="true"]{background:var(--b);border-color:var(--b);color:var(--c)}
+.search{margin-bottom:.6rem}
+.card{background:var(--c2);border:1px solid var(--line);border-radius:16px;padding:.9rem 1rem;margin-bottom:.7rem}
+.card.off{opacity:.75;background:#f3ece0}
+.row{display:flex;align-items:center;justify-content:space-between;gap:.8rem}
+.name{font-weight:800;font-size:1.05rem;line-height:1.2}
+.sub{font-size:.82rem;color:var(--s)}
+.badge{display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:.04em;border-radius:99px;padding:.15rem .5rem;margin-left:.3rem;vertical-align:middle}
+.badge.out{background:#8a8a8a;color:#fff}.badge.low{background:#fff;color:var(--r);border:1px solid var(--r)}
+/* interrupteur */
+.sw{position:relative;flex:none;width:64px;height:36px}
+.sw input{position:absolute;opacity:0;width:100%;height:100%;margin:0;min-height:0;cursor:pointer;z-index:1}
+.sw span{position:absolute;inset:0;border-radius:99px;background:#c9c2b8;transition:.25s}
+.sw span::after{content:"";position:absolute;top:4px;left:4px;width:28px;height:28px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.25);transition:.25s}
+.sw input:checked+span{background:var(--g)}
+.sw input:checked+span::after{transform:translateX(28px)}
+.sw input:focus-visible+span{outline:2px solid var(--o);outline-offset:2px}
+.swl{font-size:.75rem;font-weight:800;text-align:center;margin-top:.15rem}
+/* quantité */
+.qty{display:flex;align-items:center;gap:.4rem;margin-top:.7rem;flex-wrap:wrap}
+.qty .lab{font-size:.85rem;color:var(--s);margin-right:auto}
+.qty button.pm{width:46px;height:46px;border-radius:50%;border:1px solid rgba(29,20,14,.3);font-size:1.4rem;font-weight:700;background:#fff}
+.qty input{width:74px;text-align:center;font-weight:800;min-height:46px;padding:.4rem}
+.qty .inf{font-size:.82rem;font-weight:700;text-decoration:underline;min-height:44px;padding:0 .3rem;color:var(--b)}
+.bigline{display:flex;gap:.6rem;flex-wrap:wrap;margin:.4rem 0 1rem}
+.form{display:grid;gap:.9rem}
+.fmt{display:grid;grid-template-columns:1fr 110px 44px;gap:.4rem;align-items:end}
+.fmt button{height:50px;border-radius:12px;border:1px solid rgba(29,20,14,.2);font-size:1.2rem;background:#fff}
+.edit-head{display:flex;align-items:center;justify-content:space-between;gap:.6rem;margin-bottom:.8rem}
+.mini{font-size:.85rem;font-weight:700;text-decoration:underline;color:var(--b);min-height:44px;padding:0 .2rem}
+.danger{color:var(--r)}
+.list-btn{width:100%;text-align:left;display:flex;align-items:center;gap:.8rem}
+.list-btn img{width:52px;height:52px;border-radius:12px;object-fit:cover;flex:none;background:#e9dcc5}
+.list-btn .dot{width:52px;height:52px;border-radius:12px;flex:none}
+.list-btn .chev{margin-left:auto;font-size:1.3rem;color:var(--s)}
+.sec{margin:1.6rem 0 .6rem;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--s);font-weight:800}
+.toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom));transform:translate(-50%,30px);opacity:0;z-index:40;background:var(--i);color:var(--c);padding:.7rem 1.1rem;border-radius:99px;font-weight:700;font-size:.92rem;transition:.3s;max-width:92vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+.hist li{list-style:none;display:flex;justify-content:space-between;align-items:center;padding:.6rem 0;border-bottom:1px solid var(--line);font-size:.92rem}
+.photos{display:grid;grid-template-columns:repeat(4,1fr);gap:.4rem}
+.photos button{aspect-ratio:1;border-radius:10px;overflow:hidden;border:3px solid transparent;padding:0}
+.photos button[aria-pressed="true"]{border-color:var(--o)}
+.photos img{width:100%;height:100%;object-fit:cover}
+.photos .none{display:grid;place-items:center;font-size:.75rem;font-weight:700;background:#fff;border:1px dashed rgba(29,20,14,.3)}
+.help{background:#fff;border-left:4px solid var(--o);border-radius:10px;padding:.8rem .9rem;font-size:.9rem;color:var(--s);margin-bottom:1rem}
+</style>
+</head>
+<body>
+
+<!-- ===== CONNEXION ===== -->
+<section class="login" id="vLogin">
+  <form id="fLogin" novalidate>
+    <h1 class="serif">Espace <i>Fa</i></h1>
+    <p>Gérez le stock, les prix et les textes du site Les Délices de FA.</p>
+    <label>Votre e-mail<input id="lEmail" type="email" autocomplete="username" inputmode="email" required></label>
+    <label class="pw">Mot de passe<input id="lPass" type="password" autocomplete="current-password" required><button type="button" id="lShow">Afficher</button></label>
+    <p class="err" id="lErr" role="alert"></p>
+    <button class="btn" type="submit" id="lBtn">Se connecter</button>
+  </form>
+</section>
+
+<!-- ===== APPLICATION ===== -->
+<div id="vApp" hidden>
+  <header class="top"><h1 class="serif">Espace <i>Fa</i></h1><div style="display:flex;gap:.4rem"><a href="../" target="_blank" rel="noopener">Voir le site</a><button type="button" id="bOut">Sortir</button></div></header>
+  <div class="state" id="state" role="status">Tout est enregistré</div>
+  <main id="main"></main>
+  <nav class="tabs" aria-label="Sections">
+    <button data-t="stock" aria-current="true"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></svg>Stock</button>
+    <button data-t="cremes"><svg viewBox="0 0 24 24"><rect x="8" y="3" width="8" height="16" rx="4"/><path d="M12 19v3"/></svg>Crèmes</button>
+    <button data-t="produits"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 8h14M5 16h14"/></svg>Prix</button>
+    <button data-t="textes"><svg viewBox="0 0 24 24"><path d="M5 5h14M12 5v14M8 19h8"/></svg>Textes</button>
+    <button data-t="reglages"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg>Réglages</button>
+  </nav>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const CLES=["reglages","textes","carte","jus","cremes","galerie","avis"];
+const CATS=["Boissons traditionnelles","Jus cocktails","Spéciaux","Desserts","Salé","Box salées"];
+const PHOTOS=["box-salee","tiramisu","thiakry","ngalakh","crepes-nutella","crepes-salees","beignets-nature","beignets-coco","madd-pot","madd-1l","mangonada","tacos","nems","nems-2","beignets-crevettes","tortillas-panees","creme-caramel","creme-caramel-2","creme-chocolat","cremes-assorties"].map(n=>`images/produits/${n}.webp`);
+const BOUTEILLES={"":"Aucune","bissap":"Bissap rouge","bissap-blanc":"Bissap blanc","gingembre":"Gingembre","ditakh":"Ditakh","bouye":"Bouye lait","fraise":"Bouye fraise","corossol":"Bouye corossol","mangue":"Mangue passion","kaki":"Bouye kaki","ananas":"Bouye ananas","orange":"Orange melon ananas","madd":"Madd passion","cocktail":"Cocktail fruité","grenade":"Grenade passion","ananas-passion":"Ananas passion","orange-pomme":"Orange pomme","passion":"Bouye passion","pistache":"Pistache","pina":"Piña colada"};
+let API="",JETON="",D={},onglet="stock",filtre="Tous",recherche="",edition=null;
+const $=id=>document.getElementById(id);
+const esc=t=>String(t??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmt=n=>Number(n||0).toLocaleString("fr-FR").replace(/ | /g," ")+" F";
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}},del(k){try{localStorage.removeItem(k)}catch(e){}}};
+function toast(t){const e=$("toast");e.textContent=t;e.classList.add("show");clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove("show"),2200)}
+function etat(t,c=""){const s=$("state");s.textContent=t;s.className="state "+c}
+
+async function appel(chemin,opt={}){
+  const r=await fetch(API+chemin,{...opt,headers:{"Content-Type":"application/json",...(JETON?{Authorization:"Bearer "+JETON}:{}),...(opt.headers||{})}});
+  let j={};try{j=await r.json()}catch(e){}
+  if(r.status===401&&chemin!=="/connexion"){deconnexion("Votre session a expiré. Reconnectez-vous.");throw new Error("401")}
+  if(!r.ok)throw new Error(j.erreur||"Erreur "+r.status);
+  return j;
+}
+
+/* ---------- enregistrement automatique ---------- */
+const attente={};let enCours=0;
+function modifie(cle){etat("Enregistrement…","busy");clearTimeout(attente[cle]);attente[cle]=setTimeout(()=>sauver(cle),700)}
+async function sauver(cle,essai=0){
+  enCours++;
+  delete attente[cle];
+  try{await appel("/donnees/"+cle,{method:"PUT",body:JSON.stringify(D[cle])});enCours--;if(!enCours&&!Object.values(attente).some(Boolean))etat("✓ Tout est enregistré — visible sur le site")}
+  catch(e){enCours--;if(e.message==="401")return;
+    if(essai<3&&!/invalide|doit|Prix|nom/i.test(e.message)){etat("Pas de connexion — nouvel essai…","bad");setTimeout(()=>sauver(cle,essai+1),2500*(essai+1))}
+    else{etat("Non enregistré : "+e.message,"bad");toast("⚠ "+e.message)}}
+}
+
+/* ---------- connexion ---------- */
+$("lShow").onclick=()=>{const i=$("lPass");i.type=i.type==="password"?"text":"password";$("lShow").textContent=i.type==="password"?"Afficher":"Masquer"};
+$("fLogin").addEventListener("submit",async e=>{e.preventDefault();$("lErr").textContent="";
+  const email=$("lEmail").value.trim(),motdepasse=$("lPass").value;
+  if(!email||!motdepasse){$("lErr").textContent="Entrez votre e-mail et votre mot de passe.";return}
+  $("lBtn").disabled=true;$("lBtn").textContent="Connexion…";
+  try{const j=await appel("/connexion",{method:"POST",body:JSON.stringify({email,motdepasse})});JETON=j.jeton;store.set("fa-jeton",JETON);store.set("fa-email",email);await demarrer()}
+  catch(err){$("lErr").textContent=err.message==="Failed to fetch"?"Pas de connexion internet. Réessayez.":err.message}
+  finally{$("lBtn").disabled=false;$("lBtn").textContent="Se connecter"}});
+function deconnexion(msg){JETON="";store.del("fa-jeton");$("vApp").hidden=true;$("vLogin").hidden=false;if(msg)$("lErr").textContent=msg}
+$("bOut").onclick=()=>deconnexion("");
+
+async function demarrer(){
+  const j=await appel("/donnees");D=j.donnees||{};
+  // première utilisation : on recopie dans la base les données livrées avec le site
+  for(const cle of CLES){if(!D[cle]){try{const r=await fetch(`../data/${cle}.json`,{cache:"no-cache"});if(r.ok){D[cle]=await r.json();await appel("/donnees/"+cle,{method:"PUT",body:JSON.stringify(D[cle])})}}catch(e){}}}
+  $("vLogin").hidden=true;$("vApp").hidden=false;etat("✓ Tout est enregistré — visible sur le site");afficher();
+}
+
+/* ---------- onglets ---------- */
+document.querySelectorAll("nav.tabs button").forEach(b=>b.onclick=()=>{onglet=b.dataset.t;edition=null;document.querySelectorAll("nav.tabs button").forEach(x=>x.setAttribute("aria-current",x===b));afficher();scrollTo(0,0)});
+function afficher(){({stock:vStock,cremes:vCremes,produits:vProduits,textes:vTextes,reglages:vReglages})[onglet]()}
+
+/* ---------- briques ---------- */
+const ep=(q)=>(q===null||q===undefined||q==="")?null:Number(q);
+function badge(o){const q=ep(o.quantite),s=Number(D.reglages?.seuil_alerte??5);if(o.disponible===false||q===0)return '<span class="badge out">ÉPUISÉ</span>';if(q!==null&&q<=s)return `<span class="badge low">PLUS QUE ${q}</span>`;return ""}
+function ligneStock(o,id,sub){const q=ep(o.quantite),on=o.disponible!==false;
+  return `<div class="card${on&&q!==0?"":" off"}" data-id="${id}">
+  <div class="row"><div><div class="name">${esc(o.nom)}${badge(o)}</div>${sub?`<div class="sub">${esc(sub)}</div>`:""}</div>
+  <div><label class="sw" aria-label="${esc(o.nom)} disponible"><input type="checkbox" ${on?"checked":""} data-a="dispo"><span></span></label><div class="swl">${on?"Disponible":"Épuisé"}</div></div></div>
+  <div class="qty"><span class="lab">Quantité restante</span><button class="pm" data-a="moins" aria-label="Une de moins">−</button><input type="number" inputmode="numeric" min="0" value="${q===null?"":q}" placeholder="∞" data-a="q" aria-label="Quantité de ${esc(o.nom)}"><button class="pm" data-a="plus" aria-label="Une de plus">+</button>
+  ${q===null?"":'<button class="inf" data-a="inf">Ne pas compter</button>'}</div></div>`}
+function brancherStock(conteneur,obtenir,cle){
+  conteneur.querySelectorAll(".card[data-id]").forEach(c=>{const o=obtenir(c.dataset.id);
+    const maj=()=>{modifie(cle);const tmp=document.createElement("div");tmp.innerHTML=ligneStock(o,c.dataset.id,c.querySelector(".sub")?.textContent);const n=tmp.firstElementChild;c.replaceWith(n);brancherStock(n.parentElement.querySelectorAll(`.card[data-id="${CSS.escape(c.dataset.id)}"]`).length?{querySelectorAll:()=>[n]}:conteneur,obtenir,cle)};
+    c.querySelector('[data-a="dispo"]').onchange=e=>{o.disponible=e.target.checked;if(o.disponible&&ep(o.quantite)===0)o.quantite=null;maj()};
+    c.querySelector('[data-a="moins"]').onclick=()=>{const q=ep(o.quantite);o.quantite=Math.max(0,(q===null?1:q)-1);maj()};
+    c.querySelector('[data-a="plus"]').onclick=()=>{const q=ep(o.quantite);o.quantite=(q===null?0:q)+1;if(o.disponible===false)o.disponible=true;maj()};
+    c.querySelector('[data-a="q"]').onchange=e=>{const v=e.target.value.trim();o.quantite=v===""?null:Math.max(0,parseInt(v,10)||0);if(o.quantite>0)o.disponible=true;maj()};
+    const inf=c.querySelector('[data-a="inf"]');if(inf)inf.onclick=()=>{o.quantite=null;maj()};
+  });
+}
+
+/* ---------- STOCK ---------- */
+function vStock(){
+  const P=D.carte?.produits||[];
+  const groupes={"Tous":()=>true,"Jus":p=>["Boissons traditionnelles","Jus cocktails","Spéciaux"].includes(p.categorie),"Desserts":p=>p.categorie==="Desserts","Salé":p=>p.categorie==="Salé","Box":p=>p.categorie==="Box salées"};
+  const liste=P.map((p,i)=>[p,i]).filter(([p])=>groupes[filtre](p)&&(!recherche||p.nom.toLowerCase().includes(recherche)));
+  const nbOut=P.filter(p=>p.disponible===false||ep(p.quantite)===0).length;
+  $("main").innerHTML=`<h2>Stock du jour</h2><p class="intro">Basculez sur <b>Épuisé</b> ce qui n'est plus disponible. La quantité est facultative : à 0, le produit passe tout seul en épuisé. Tout est enregistré automatiquement.</p>
+  <div class="bigline"><button class="btn alt" id="toutDispo">Tout remettre disponible</button><span class="sub" style="align-self:center">${nbOut} produit${nbOut>1?"s":""} épuisé${nbOut>1?"s":""}</span></div>
+  <input class="search" type="search" placeholder="Chercher un produit…" value="${esc(recherche)}" id="rech">
+  <div class="chips">${Object.keys(groupes).map(g=>`<button aria-pressed="${g===filtre}" data-g="${g}">${g}</button>`).join("")}</div>
+  <div id="lst">${liste.map(([p,i])=>ligneStock(p,i,p.categorie)).join("")||'<p class="sub">Aucun produit.</p>'}</div>`;
+  $("rech").oninput=e=>{recherche=e.target.value.toLowerCase();const pos=e.target.selectionStart;vStock();const r=$("rech");r.focus();r.setSelectionRange(pos,pos)};
+  document.querySelectorAll(".chips [data-g]").forEach(b=>b.onclick=()=>{filtre=b.dataset.g;vStock()});
+  brancherStock($("lst"),id=>P[+id],"carte");
+  $("toutDispo").onclick=()=>{if(!confirm("Remettre tous les produits disponibles, sans quantité ?"))return;P.forEach(p=>{p.disponible=true;p.quantite=null});modifie("carte");vStock()};
+}
+
+/* ---------- CRÈMES ---------- */
+function vCremes(){
+  const C=D.cremes||(D.cremes={prix:500,cremes:[]});
+  if(edition!==null)return editCreme(edition);
+  $("main").innerHTML=`<h2>Crèmes glacées</h2><p class="intro">Même principe que le stock. Le prix s'applique à toutes les crèmes.</p>
+  <div class="card"><label>Prix d'une crème (F CFA)<input type="number" inputmode="numeric" min="0" id="cPrix" value="${esc(C.prix)}"></label></div>
+  <div id="lst">${C.cremes.map((c,i)=>ligneStock(c,i,c.phrase)).join("")}</div>
+  <p class="sec">Parfums</p><div class="bigline"><button class="btn" id="addC">+ Ajouter un parfum</button><button class="btn alt" id="editC">Modifier un parfum</button></div>`;
+  $("cPrix").onchange=e=>{C.prix=Math.max(0,parseInt(e.target.value,10)||0);modifie("cremes")};
+  brancherStock($("lst"),id=>C.cremes[+id],"cremes");
+  $("addC").onclick=()=>{C.cremes.push({nom:"Nouveau parfum",disponible:true,quantite:null,phrase:"",couleur:"#efe2c8",morceaux:"#8a5426",texture:"marbre",dessin:"goutte",etiquette_haut:"#3f8a35",etiquette_milieu:"#1d140e",etiquette_nom:"#6b3a1a"});modifie("cremes");edition=C.cremes.length-1;vCremes()};
+  $("editC").onclick=()=>{$("main").insertAdjacentHTML("beforeend",`<div class="card" id="pick">${C.cremes.map((c,i)=>`<button class="list-btn" style="padding:.5rem 0" data-i="${i}"><span class="dot" style="background:linear-gradient(135deg,${esc(c.couleur)} 55%,${esc(c.morceaux)} 55%)"></span><span class="name">${esc(c.nom)}</span><span class="chev">›</span></button>`).join("")}</div>`);
+    $("pick").querySelectorAll("[data-i]").forEach(b=>b.onclick=()=>{edition=+b.dataset.i;vCremes();scrollTo(0,0)});$("pick").scrollIntoView({behavior:"smooth"})};
+}
+function editCreme(i){const C=D.cremes,c=C.cremes[i];
+  $("main").innerHTML=`<div class="edit-head"><button class="mini" id="back">‹ Retour</button><button class="mini danger" id="del">Supprimer ce parfum</button></div>
+  <h2>${esc(c.nom)}</h2><div class="form" style="margin-top:1rem">
+  <label>Nom du parfum<input id="fN" value="${esc(c.nom)}"></label>
+  <label>Petite phrase<small>Affichée sous le nom sur le site</small><input id="fP" value="${esc(c.phrase)}"></label>
+  <label>Couleur de la crème<input type="color" id="fC" value="${esc(c.couleur)}" style="height:56px;padding:.3rem"></label>
+  <label>Couleur de la sauce ou des morceaux<input type="color" id="fM" value="${esc(c.morceaux)}" style="height:56px;padding:.3rem"></label>
+  <label>Aspect<select id="fT">${[["marbre","Marbrée (traînées de sauce)"],["chips","Avec éclats"],["seeds","Avec grains"],["smooth","Lisse"]].map(([v,l])=>`<option value="${v}" ${c.texture===v?"selected":""}>${l}</option>`).join("")}</select></label>
+  </div>`;
+  const s=()=>modifie("cremes");
+  $("fN").oninput=e=>{c.nom=e.target.value||"Sans nom";s()};$("fP").oninput=e=>{c.phrase=e.target.value;s()};
+  $("fC").oninput=e=>{c.couleur=e.target.value;s()};$("fM").oninput=e=>{c.morceaux=e.target.value;s()};$("fT").onchange=e=>{c.texture=e.target.value;s()};
+  $("back").onclick=()=>{edition=null;vCremes()};
+  $("del").onclick=()=>{if(!confirm(`Supprimer le parfum « ${c.nom} » du site ?`))return;C.cremes.splice(i,1);s();edition=null;vCremes()};
+}
+
+/* ---------- PRIX & PRODUITS ---------- */
+function vProduits(){
+  const P=D.carte?.produits||[];
+  if(edition!==null)return editProduit(edition);
+  $("main").innerHTML=`<h2>Prix et produits</h2><p class="intro">Touchez un produit pour changer son prix, son nom ou sa photo.</p>
+  <div class="bigline"><button class="btn" id="addP">+ Ajouter un produit</button></div>
+  ${CATS.map(cat=>{const l=P.map((p,i)=>[p,i]).filter(([p])=>p.categorie===cat);if(!l.length)return"";return `<p class="sec">${esc(cat)}</p>`+l.map(([p,i])=>`<button class="card list-btn" data-i="${i}">${p.photo?`<img src="../${esc(p.photo)}" alt="" loading="lazy">`:`<span class="dot" style="background:#e9dcc5"></span>`}<span><span class="name">${esc(p.nom)}</span><br><span class="sub">${p.formats.map(f=>`${esc(f.nom)} : ${fmt(f.prix)}`).join(" · ")}</span></span><span class="chev">›</span></button>`).join("")}).join("")}`;
+  document.querySelectorAll("[data-i]").forEach(b=>b.onclick=()=>{edition=+b.dataset.i;vProduits();scrollTo(0,0)});
+  $("addP").onclick=()=>{P.push({nom:"Nouveau produit",categorie:"Desserts",formats:[{nom:"l'unité",prix:1000}],disponible:true,quantite:null,incontournable:false,ingredients:"",bouteille:"",photo:"",description:""});modifie("carte");edition=P.length-1;vProduits()};
+}
+function editProduit(i){const P=D.carte.produits,p=P[i],s=()=>modifie("carte");const jus=["Boissons traditionnelles","Jus cocktails","Spéciaux"].includes(p.categorie);
+  $("main").innerHTML=`<div class="edit-head"><button class="mini" id="back">‹ Retour</button><button class="mini danger" id="del">Supprimer</button></div>
+  <h2>${esc(p.nom)}</h2><div class="form" style="margin-top:1rem">
+  <div class="card"><p class="name" style="margin-bottom:.6rem">Formats et prix</p><div id="fmts" class="form"></div><button class="mini" id="addF" style="margin-top:.4rem">+ Ajouter un format</button></div>
+  <label>Nom du produit<input id="fN" value="${esc(p.nom)}"></label>
+  <label>Rubrique de la carte<select id="fCat">${CATS.map(c=>`<option ${c===p.categorie?"selected":""}>${esc(c)}</option>`).join("")}</select></label>
+  <label>Description<small>Une phrase courte</small><textarea id="fD">${esc(p.description)}</textarea></label>
+  ${jus?`<label>Ingrédients<small>Affichés sur la carte et sur l'étiquette dessinée</small><input id="fI" value="${esc(p.ingredients)}"></label>
+  <label>Bouteille dessinée<select id="fB">${Object.entries(BOUTEILLES).map(([v,l])=>`<option value="${v}" ${v===(p.bouteille||"")?"selected":""}>${l}</option>`).join("")}</select></label>`:""}
+  <div class="row card"><span class="name">Badge « Incontournable »</span><label class="sw"><input type="checkbox" id="fInc" ${p.incontournable?"checked":""}><span></span></label></div>
+  ${jus?"":`<div><p class="name" style="margin-bottom:.5rem">Photo</p><div class="photos">${["",...PHOTOS].map(ph=>`<button type="button" data-ph="${esc(ph)}" aria-pressed="${ph===(p.photo||"")}">${ph?`<img src="../${esc(ph)}" alt="" loading="lazy">`:'<span class="none">Sans photo</span>'}</button>`).join("")}</div><p class="sub" style="margin-top:.4rem">Pour une nouvelle photo, envoyez-la à Djibril.</p></div>`}
+  <div class="row"><button class="btn alt" id="up">↑ Monter</button><button class="btn alt" id="down">↓ Descendre</button></div>
+  </div>`;
+  const drawF=()=>{$("fmts").innerHTML=p.formats.map((f,k)=>`<div class="fmt"><label>Format<input data-k="${k}" data-f="nom" value="${esc(f.nom)}"></label><label>Prix (F)<input data-k="${k}" data-f="prix" type="number" inputmode="numeric" min="0" value="${esc(f.prix)}"></label><button data-rm="${k}" aria-label="Supprimer ce format" ${p.formats.length<2?"disabled":""}>×</button></div>`).join("");
+    $("fmts").querySelectorAll("input").forEach(inp=>inp.oninput=e=>{const f=p.formats[+inp.dataset.k];if(inp.dataset.f==="prix")f.prix=Math.max(0,parseInt(inp.value,10)||0);else f.nom=inp.value;s()});
+    $("fmts").querySelectorAll("[data-rm]").forEach(b=>b.onclick=()=>{p.formats.splice(+b.dataset.rm,1);s();drawF()})};
+  drawF();
+  $("addF").onclick=()=>{p.formats.push({nom:"",prix:0});s();drawF()};
+  $("fN").oninput=e=>{p.nom=e.target.value||"Sans nom";s()};$("fD").oninput=e=>{p.description=e.target.value;s()};
+  $("fCat").onchange=e=>{p.categorie=e.target.value;s();editProduit(i)};
+  if($("fI"))$("fI").oninput=e=>{p.ingredients=e.target.value;s()};if($("fB"))$("fB").onchange=e=>{p.bouteille=e.target.value;s()};
+  $("fInc").onchange=e=>{p.incontournable=e.target.checked;s()};
+  document.querySelectorAll("[data-ph]").forEach(b=>b.onclick=()=>{p.photo=b.dataset.ph;s();document.querySelectorAll("[data-ph]").forEach(x=>x.setAttribute("aria-pressed",x===b))});
+  $("up").onclick=()=>{if(i>0){[P[i-1],P[i]]=[P[i],P[i-1]];s();edition=i-1;toast("Déplacé vers le haut")}};
+  $("down").onclick=()=>{if(i<P.length-1){[P[i+1],P[i]]=[P[i],P[i+1]];s();edition=i+1;toast("Déplacé vers le bas")}};
+  $("back").onclick=()=>{edition=null;vProduits()};
+  $("del").onclick=()=>{if(!confirm(`Supprimer « ${p.nom} » du site ?`))return;P.splice(i,1);s();edition=null;vProduits()};
+}
+
+/* ---------- TEXTES ---------- */
+function vTextes(){const T=D.textes||(D.textes={}),A=D.avis||(D.avis={avis:[]}),s=()=>modifie("textes");
+  const ch=(k,l,aide,long)=>`<label>${l}${aide?`<small>${aide}</small>`:""}${long?`<textarea data-k="${k}">${esc(T[k])}</textarea>`:`<input data-k="${k}" value="${esc(T[k])}">`}</label>`;
+  $("main").innerHTML=`<h2>Textes du site</h2><p class="intro">Les changements apparaissent sur le site dès qu'on recharge la page.</p>
+  <div class="card"><div class="form">${ch("annonce","Annonce en haut du site","Ex. « Fermé dimanche » ou « Nouveau : crème Pistache ». Laissez vide pour la cacher.")}<button class="mini" id="clr" style="justify-self:start">Effacer l'annonce</button></div></div>
+  <p class="sec">Ouverture</p><div class="form">${ch("hero_ligne1","Ligne 1")}${ch("hero_ligne2","Ligne 2")}${ch("hero_ligne3","Ligne 3")}${ch("hero_texte","Texte d'accueil","",1)}</div>
+  <p class="sec">La maison</p><div class="form">${ch("maison_titre","Titre")}${ch("maison_texte1","Paragraphe 1","",1)}${ch("maison_texte2","Paragraphe 2","",1)}</div>
+  <p class="sec">La carte</p><div class="form">${ch("carte_intro","Texte d'introduction","",1)}</div>
+  <p class="sec">Événements</p><div class="form">${ch("evenements_titre","Titre")}${ch("evenements_texte","Texte","",1)}<label>Types d'événements<small>Séparés par des virgules</small><input id="occ" value="${esc((T.occasions||[]).join(", "))}"></label></div>
+  <p class="sec">Avis clients</p><div class="help">Seulement de vrais avis, avec l'accord de la cliente. Sans avis, le site affiche le lien Instagram.</div>
+  <div id="avis" class="form"></div><button class="btn alt" id="addA" style="margin-top:.6rem">+ Ajouter un avis</button>`;
+  document.querySelectorAll("[data-k]").forEach(e=>e.oninput=()=>{T[e.dataset.k]=e.value;s()});
+  $("clr").onclick=()=>{T.annonce="";document.querySelector('[data-k="annonce"]').value="";s()};
+  $("occ").oninput=e=>{T.occasions=e.target.value.split(",").map(x=>x.trim()).filter(Boolean);s()};
+  const drawA=()=>{$("avis").innerHTML=A.avis.map((a,k)=>`<div class="card form"><label>Avis<textarea data-ak="${k}" data-f="texte">${esc(a.texte)}</textarea></label><label>Prénom et quartier<input data-ak="${k}" data-f="auteur" value="${esc(a.auteur)}"></label><button class="mini danger" data-rmA="${k}" style="justify-self:start">Supprimer cet avis</button></div>`).join("");
+    $("avis").querySelectorAll("[data-ak]").forEach(e=>e.oninput=()=>{A.avis[+e.dataset.ak][e.dataset.f]=e.value;modifie("avis")});
+    $("avis").querySelectorAll("[data-rmA]").forEach(b=>b.onclick=()=>{if(confirm("Supprimer cet avis ?")){A.avis.splice(+b.dataset.rma,1);modifie("avis");drawA()}})};
+  drawA();$("addA").onclick=()=>{A.avis.push({texte:"",auteur:""});drawA()};
+}
+
+/* ---------- RÉGLAGES ---------- */
+function vReglages(){const R=D.reglages||(D.reglages={}),s=()=>modifie("reglages");
+  $("main").innerHTML=`<h2>Réglages</h2><div class="form" style="margin-top:1rem">
+  <label>Numéro WhatsApp des commandes<small>Chiffres seulement, avec 221. Ex. 221778030157</small><input id="rW" inputmode="numeric" value="${esc(R.whatsapp)}"></label>
+  <label>Téléphone affiché<input id="rT" value="${esc(R.telephone)}"></label>
+  <label>Adresse<input id="rA" value="${esc(R.adresse)}"></label>
+  <label>Compte Instagram (sans @)<input id="rI" value="${esc(R.instagram)}"></label>
+  <label>Seuil « Plus que … »<small>En dessous de ce nombre, le site affiche « Plus que 3 », par exemple.</small><input id="rS" type="number" inputmode="numeric" min="0" value="${esc(R.seuil_alerte)}"></label></div>
+  <p class="sec">Annuler une erreur</p><div class="help">Chaque modification est gardée en mémoire. En cas d'erreur, choisissez une section et revenez à une version précédente.</div>
+  <div class="chips" id="hk">${[["carte","Stock et prix"],["cremes","Crèmes"],["textes","Textes"],["avis","Avis"],["reglages","Réglages"]].map(([k,l])=>`<button data-h="${k}">${l}</button>`).join("")}</div><ul class="hist" id="hl"></ul>`;
+  $("rW").oninput=e=>{R.whatsapp=e.target.value.replace(/\D/g,"");s()};$("rT").oninput=e=>{R.telephone=e.target.value;s()};
+  $("rA").oninput=e=>{R.adresse=e.target.value;s()};$("rI").oninput=e=>{R.instagram=e.target.value.replace(/^@/,"");s()};
+  $("rS").oninput=e=>{R.seuil_alerte=Math.max(0,parseInt(e.target.value,10)||0);s()};
+  document.querySelectorAll("[data-h]").forEach(b=>b.onclick=async()=>{document.querySelectorAll("[data-h]").forEach(x=>x.setAttribute("aria-pressed",x===b));$("hl").innerHTML="<li>Chargement…</li>";
+    try{const j=await appel("/historique/"+b.dataset.h);$("hl").innerHTML=j.versions.length?j.versions.map(v=>`<li><span>${new Date(v.date.replace(" ","T")+"Z").toLocaleString("fr-FR",{dateStyle:"short",timeStyle:"short"})}</span><button class="mini" data-v="${v.id}">Revenir à cette version</button></li>`).join(""):"<li>Aucune version précédente.</li>";
+      $("hl").querySelectorAll("[data-v]").forEach(x=>x.onclick=async()=>{if(!confirm("Revenir à cette version ? La version actuelle restera dans l'historique."))return;try{await appel(`/historique/${b.dataset.h}/${x.dataset.v}/restaurer`,{method:"POST"});const j2=await appel("/donnees");D=j2.donnees;toast("✓ Version restaurée");b.click()}catch(e){toast("⚠ "+e.message)}})}
+    catch(e){$("hl").innerHTML=`<li>${esc(e.message)}</li>`}});
+}
+
+/* ---------- lancement ---------- */
+addEventListener("beforeunload",e=>{if(Object.values(attente).some(Boolean)||enCours){e.preventDefault();e.returnValue=""}});
+(async()=>{
+  try{const c=await (await fetch("../config.json",{cache:"no-cache"})).json();API=String(c.api||"").replace(/\/$/,"")}catch(e){}
+  if(!API){$("lErr").textContent="Le site n'est pas encore relié au serveur (config.json).";return}
+  $("lEmail").value=store.get("fa-email")||"";
+  JETON=store.get("fa-jeton")||"";
+  if(JETON){try{await appel("/moi");await demarrer()}catch(e){if(e.message!=="401")$("lErr").textContent="Connexion au serveur impossible. Vérifiez internet."}}
+})();
+</script>
+</body>
+</html>

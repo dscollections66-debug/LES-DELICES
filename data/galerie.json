@@ -1,0 +1,39 @@
+{
+  "photos": [
+    {
+      "image": "images/produits/creme-caramel-2.webp",
+      "titre": "Crèmes caramel",
+      "legende": "500 F la crème"
+    },
+    {
+      "image": "images/produits/creme-chocolat.webp",
+      "titre": "Crèmes chocolat",
+      "legende": "500 F la crème"
+    },
+    {
+      "image": "images/produits/cremes-assorties.webp",
+      "titre": "Parfums assortis",
+      "legende": "Oreo, vanille, caramel, chocolat"
+    },
+    {
+      "image": "images/produits/box-salee.webp",
+      "titre": "Box salée",
+      "legende": "De 8 à 50 pièces"
+    },
+    {
+      "image": "images/produits/beignets-crevettes.webp",
+      "titre": "Beignets de crevettes",
+      "legende": "Dans les box salées"
+    },
+    {
+      "image": "images/produits/nems.webp",
+      "titre": "Nems",
+      "legende": "Dans les box salées"
+    },
+    {
+      "image": "images/produits/tiramisu.webp",
+      "titre": "Tiramisu",
+      "legende": "2 000 F"
+    }
+  ]
+}
