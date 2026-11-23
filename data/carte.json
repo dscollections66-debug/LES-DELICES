@@ -404,7 +404,19 @@
       "categorie": "Desserts",
       "formats": [
         {
-          "nom": "le pot",
+          "nom": "Spéculoos",
+          "prix": 2000
+        },
+        {
+          "nom": "Oreo",
+          "prix": 2000
+        },
+        {
+          "nom": "Bueno",
+          "prix": 2000
+        },
+        {
+          "nom": "Nutella",
           "prix": 2000
         }
       ],
@@ -414,7 +426,7 @@
       "ingredients": "",
       "bouteille": "",
       "photo": "images/produits/tiramisu.webp",
-      "description": "Crème onctueuse, filets de caramel et miettes de spéculoos."
+      "description": "Crème onctueuse, au parfum de votre choix."
     },
     {
       "nom": "Thiakry",
@@ -644,6 +656,23 @@
       "bouteille": "",
       "photo": "images/produits/crepes-salees.webp",
       "description": "Crêpes garnies à la viande."
+    },
+    {
+      "nom": "Beignets crevettes",
+      "categorie": "Salé",
+      "formats": [
+        {
+          "nom": "la box de 10",
+          "prix": 3500
+        }
+      ],
+      "disponible": true,
+      "quantite": null,
+      "incontournable": false,
+      "ingredients": "",
+      "bouteille": "",
+      "photo": "images/produits/beignets-crevettes.webp",
+      "description": "Beignets de crevettes croustillants, en box de 10."
     },
     {
       "nom": "Box salée",

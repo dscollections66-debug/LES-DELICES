@@ -20,5 +20,14 @@
     "Entreprise",
     "Autre"
   ],
-  "annonce": ""
+  "annonce": "",
+  "produits_evenement": [
+    "Jus",
+    "Salade de fruits",
+    "Verrine",
+    "Lakh",
+    "Verrine de madd",
+    "Salés",
+    "Beignets mariage"
+  ]
 }

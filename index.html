@@ -588,7 +588,11 @@ body.cart-open .sheet{transform:none}
         <label>Date<input id="evDate" type="date"></label>
         <label>Nombre d'invités<input id="evNb" type="number" min="1" inputmode="numeric" placeholder="Ex. 80"></label>
       </div>
-      <label>Vos envies (facultatif)<textarea id="evMsg" placeholder="Ex. jus bissap et bouye, 2 box de 50 pièces…"></textarea></label>
+      <div>
+        <p style="font-size:.85rem;margin-bottom:.45rem">Produits souhaités <span style="opacity:.75">(facultatif, touchez pour choisir)</span></p>
+        <div class="ev-types" id="evProds" role="group" aria-label="Produits souhaités"></div>
+      </div>
+      <label>Vos envies (facultatif)<textarea id="evMsg" placeholder="Ex. bissap et bouye, 2 box de 50 pièces, heure de livraison…"></textarea></label>
       <p class="ev-err" id="evErr" role="alert"></p>
       <div><a class="btn btn-wa" id="evSend" href="#" target="_blank" rel="noopener">Envoyer ma demande sur WhatsApp →</a></div>
     </form>
@@ -1056,9 +1060,12 @@ const once=CREMES.map(f=>`<span>${esc(f.n)}</span><i>✦</i>`).join("");$("mq").
 const T=D.textes;let evType="";
 $("evTypes").innerHTML=(T.occasions||[]).map(o=>`<button type="button" role="radio" aria-pressed="false" data-t="${esc(o)}">${esc(o)}</button>`).join("");
 $("evTypes").querySelectorAll("button").forEach(b=>b.onclick=()=>{evType=b.dataset.t;$("evTypes").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));$("evAutreWrap").hidden=evType!=="Autre";buildEv()});
-function evMsg(){const t=evType==="Autre"?($("evAutre").value.trim()||"Autre"):evType,d=$("evDate").value,n=$("evNb").value,m=$("evMsg").value.trim();
+const EV_PRODS=(T.produits_evenement&&T.produits_evenement.length)?T.produits_evenement:["Jus","Salade de fruits","Verrine","Lakh","Verrine de madd","Salés","Beignets mariage"];const evSel=new Set();
+$("evProds").innerHTML=EV_PRODS.map(o=>`<button type="button" aria-pressed="false" data-p="${esc(o)}">${esc(o)}</button>`).join("");
+$("evProds").querySelectorAll("button").forEach(b=>b.onclick=()=>{const v=b.dataset.p;evSel.has(v)?evSel.delete(v):evSel.add(v);b.setAttribute("aria-pressed",evSel.has(v));buildEv()});
+function evMsg(){const pr=EV_PRODS.filter(x=>evSel.has(x)).join(", ");const t=evType==="Autre"?($("evAutre").value.trim()||"Autre"):evType,d=$("evDate").value,n=$("evNb").value,m=$("evMsg").value.trim();
   const dt=d?new Date(d+"T12:00").toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long",year:"numeric"}):"";
-  return `Bonjour Les Délices de FA ! Je souhaite un devis pour un événement.\n\n• Événement : ${t}\n• Date : ${dt}\n• Nombre d'invités : ${n}${m?`\n• Mes envies : ${m}`:""}\n\nMerci !`}
+  return `Bonjour Les Délices de FA ! Je souhaite un devis pour un événement.\n\n• Événement : ${t}\n• Date : ${dt}\n• Nombre d'invités : ${n}${pr?`\n• Produits souhaités : ${pr}`:""}${m?`\n• Mes envies : ${m}`:""}\n\nMerci !`}
 function buildEv(){$("evSend").href=wa(evMsg());$("evErr").textContent=""}
 ["evAutre","evDate","evNb","evMsg"].forEach(id=>$(id).addEventListener("input",buildEv));
 $("evSend").addEventListener("click",e=>{const miss=[];if(!evType)miss.push("le type d'événement");if(!$("evDate").value)miss.push("la date");if(!(+$("evNb").value>0))miss.push("le nombre d'invités");

@@ -294,12 +294,13 @@ function vTextes(){const T=D.textes||(D.textes={}),A=D.avis||(D.avis={avis:[]}),
   <p class="sec">Ouverture</p><div class="form">${ch("hero_ligne1","Ligne 1")}${ch("hero_ligne2","Ligne 2")}${ch("hero_ligne3","Ligne 3")}${ch("hero_texte","Texte d'accueil","",1)}</div>
   <p class="sec">La maison</p><div class="form">${ch("maison_titre","Titre")}${ch("maison_texte1","Paragraphe 1","",1)}${ch("maison_texte2","Paragraphe 2","",1)}</div>
   <p class="sec">La carte</p><div class="form">${ch("carte_intro","Texte d'introduction","",1)}</div>
-  <p class="sec">Événements</p><div class="form">${ch("evenements_titre","Titre")}${ch("evenements_texte","Texte","",1)}<label>Types d'événements<small>Séparés par des virgules</small><input id="occ" value="${esc((T.occasions||[]).join(", "))}"></label></div>
+  <p class="sec">Événements</p><div class="form">${ch("evenements_titre","Titre")}${ch("evenements_texte","Texte","",1)}<label>Types d'événements<small>Séparés par des virgules</small><input id="occ" value="${esc((T.occasions||[]).join(", "))}"></label><label>Produits proposés pour les événements<small>Séparés par des virgules. Le client peut en cocher plusieurs.</small><input id="evp" value="${esc((T.produits_evenement||["Jus","Salade de fruits","Verrine","Lakh","Verrine de madd","Salés","Beignets mariage"]).join(", "))}"></label></div>
   <p class="sec">Avis clients</p><div class="help">Seulement de vrais avis, avec l'accord de la cliente. Sans avis, le site affiche le lien Instagram.</div>
   <div id="avis" class="form"></div><button class="btn alt" id="addA" style="margin-top:.6rem">+ Ajouter un avis</button>`;
   document.querySelectorAll("[data-k]").forEach(e=>e.oninput=()=>{T[e.dataset.k]=e.value;s()});
   $("clr").onclick=()=>{T.annonce="";document.querySelector('[data-k="annonce"]').value="";s()};
   $("occ").oninput=e=>{T.occasions=e.target.value.split(",").map(x=>x.trim()).filter(Boolean);s()};
+  $("evp").oninput=e=>{T.produits_evenement=e.target.value.split(",").map(x=>x.trim()).filter(Boolean);s()};
   const drawA=()=>{$("avis").innerHTML=A.avis.map((a,k)=>`<div class="card form"><label>Avis<textarea data-ak="${k}" data-f="texte">${esc(a.texte)}</textarea></label><label>Prénom et quartier<input data-ak="${k}" data-f="auteur" value="${esc(a.auteur)}"></label><button class="mini danger" data-rmA="${k}" style="justify-self:start">Supprimer cet avis</button></div>`).join("");
     $("avis").querySelectorAll("[data-ak]").forEach(e=>e.oninput=()=>{A.avis[+e.dataset.ak][e.dataset.f]=e.value;modifie("avis")});
     $("avis").querySelectorAll("[data-rmA]").forEach(b=>b.onclick=()=>{if(confirm("Supprimer cet avis ?")){A.avis.splice(+b.dataset.rma,1);modifie("avis");drawA()}})};
