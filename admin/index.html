@@ -146,12 +146,34 @@ async function appel(chemin,opt={}){
 }
 
 /* ---------- enregistrement automatique ---------- */
+/* ---------- fusion : ne jamais écraser ce qu'un autre appareil a changé ---------- */
+const BASE={};const snap=c=>{BASE[c]=JSON.stringify(D[c]??null)};
+const J=x=>JSON.stringify(x??null);
+function fusionListe(base,mine,srv){base=base||[];mine=mine||[];srv=srv||[];
+  const k=o=>o&&o.nom,bm=new Map(base.map(o=>[k(o),J(o)])),mm=new Map(mine.map(o=>[k(o),o]));
+  let out=srv.filter(o=>!(bm.has(k(o))&&!mm.has(k(o))));            // supprimés ici
+  out=out.map(o=>{const m=mm.get(k(o));return m&&J(m)!==bm.get(k(o))?m:o}); // modifiés ici
+  mine.forEach(m=>{if(!bm.has(k(m))&&!out.some(o=>k(o)===k(m)))out.push(m)}); // ajoutés ici
+  return out}
+function fusion(base,mine,srv){
+  if(Array.isArray(mine))return fusionListe(base,mine,srv);
+  if(!mine||typeof mine!=="object"||!srv||typeof srv!=="object")return mine;
+  const out={...srv};base=base||{};
+  for(const k of new Set([...Object.keys(mine),...Object.keys(base)])){
+    if(J(mine[k])===J(base[k]))continue;                 // pas touché ici : on garde le serveur
+    out[k]=Array.isArray(mine[k])&&mine[k].length&&typeof mine[k][0]==="object"?fusionListe(base[k],mine[k],srv[k]):mine[k];
+    if(!(k in mine))delete out[k]}
+  return out}
 const attente={};let enCours=0;
 function modifie(cle){etat("Enregistrement…","busy");clearTimeout(attente[cle]);attente[cle]=setTimeout(()=>sauver(cle),700)}
 async function sauver(cle,essai=0){
   enCours++;
   delete attente[cle];
-  try{await appel("/donnees/"+cle,{method:"PUT",body:JSON.stringify(D[cle])});enCours--;if(!enCours&&!Object.values(attente).some(Boolean))etat("✓ Tout est enregistré — visible sur le site")}
+  try{
+    const frais=(await appel("/donnees?t="+Date.now())).donnees||{};let fusionne=false;
+    if(cle in BASE&&J(frais[cle])!==BASE[cle]){D[cle]=fusion(JSON.parse(BASE[cle]),D[cle],frais[cle]);fusionne=true}
+    await appel("/donnees/"+cle,{method:"PUT",body:JSON.stringify(D[cle])});snap(cle);
+    if(fusionne&&!document.activeElement?.matches("input,textarea,select"))afficher();enCours--;if(!enCours&&!Object.values(attente).some(Boolean))etat("✓ Tout est enregistré — visible sur le site")}
   catch(e){enCours--;if(e.message==="401")return;
     if(essai<3&&!/invalide|doit|Prix|nom/i.test(e.message)){etat("Pas de connexion — nouvel essai…","bad");setTimeout(()=>sauver(cle,essai+1),2500*(essai+1))}
     else{etat("Non enregistré : "+e.message,"bad");toast("⚠ "+e.message)}}
@@ -170,9 +192,9 @@ function deconnexion(msg){JETON="";store.del("fa-jeton");$("vApp").hidden=true;$
 $("bOut").onclick=()=>deconnexion("");
 
 async function demarrer(){
-  const j=await appel("/donnees");D=j.donnees||{};
+  const j=await appel("/donnees");D=j.donnees||{};CLES.forEach(snap);
   // première utilisation : on recopie dans la base les données livrées avec le site
-  for(const cle of CLES){if(!D[cle]){try{const r=await fetch(`../data/${cle}.json`,{cache:"no-cache"});if(r.ok){D[cle]=await r.json();await appel("/donnees/"+cle,{method:"PUT",body:JSON.stringify(D[cle])})}}catch(e){}}}
+  for(const cle of CLES){if(!D[cle]){try{const r=await fetch(`../data/${cle}.json`,{cache:"no-cache"});if(r.ok){D[cle]=await r.json();await appel("/donnees/"+cle,{method:"PUT",body:JSON.stringify(D[cle])});snap(cle)}}catch(e){}}}
   $("vLogin").hidden=true;$("vApp").hidden=false;etat("✓ Tout est enregistré — visible sur le site");afficher();
 }
 
@@ -322,11 +344,16 @@ function vReglages(){const R=D.reglages||(D.reglages={}),s=()=>modifie("reglages
   $("rS").oninput=e=>{R.seuil_alerte=Math.max(0,parseInt(e.target.value,10)||0);s()};
   document.querySelectorAll("[data-h]").forEach(b=>b.onclick=async()=>{document.querySelectorAll("[data-h]").forEach(x=>x.setAttribute("aria-pressed",x===b));$("hl").innerHTML="<li>Chargement…</li>";
     try{const j=await appel("/historique/"+b.dataset.h);$("hl").innerHTML=j.versions.length?j.versions.map(v=>`<li><span>${new Date(v.date.replace(" ","T")+"Z").toLocaleString("fr-FR",{dateStyle:"short",timeStyle:"short"})}</span><button class="mini" data-v="${v.id}">Revenir à cette version</button></li>`).join(""):"<li>Aucune version précédente.</li>";
-      $("hl").querySelectorAll("[data-v]").forEach(x=>x.onclick=async()=>{if(!confirm("Revenir à cette version ? La version actuelle restera dans l'historique."))return;try{await appel(`/historique/${b.dataset.h}/${x.dataset.v}/restaurer`,{method:"POST"});const j2=await appel("/donnees");D=j2.donnees;toast("✓ Version restaurée");b.click()}catch(e){toast("⚠ "+e.message)}})}
+      $("hl").querySelectorAll("[data-v]").forEach(x=>x.onclick=async()=>{if(!confirm("Revenir à cette version ? La version actuelle restera dans l'historique."))return;try{await appel(`/historique/${b.dataset.h}/${x.dataset.v}/restaurer`,{method:"POST"});const j2=await appel("/donnees");D=j2.donnees;CLES.forEach(snap);toast("✓ Version restaurée");b.click()}catch(e){toast("⚠ "+e.message)}})}
     catch(e){$("hl").innerHTML=`<li>${esc(e.message)}</li>`}});
 }
 
 /* ---------- lancement ---------- */
+async function rafraichir(){if(!JETON||$("vApp").hidden||enCours||Object.values(attente).some(Boolean))return;
+  try{const j=await appel("/donnees?t="+Date.now());D=j.donnees||{};CLES.forEach(snap);if(!document.activeElement?.matches("input,textarea,select"))afficher()}catch(e){}}
+document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")rafraichir()});
+addEventListener("pageshow",e=>{if(e.persisted)rafraichir()});
+setInterval(()=>{if(document.visibilityState==="visible")rafraichir()},60000);
 addEventListener("beforeunload",e=>{if(Object.values(attente).some(Boolean)||enCours){e.preventDefault();e.returnValue=""}});
 (async()=>{
   try{const c=await (await fetch("../config.json",{cache:"no-cache"})).json();API=String(c.api||"").replace(/\/$/,"")}catch(e){}
